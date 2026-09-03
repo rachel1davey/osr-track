@@ -5,4 +5,5 @@
 [Y] - add a main commission img
 [] - Add img upload for main image, then image upload for commission in general
 [] - Change commission status uppercase
-[] - Make cropper work for main image
+[] - Make confirm work for main image
+[] - Add supabase auth

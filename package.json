@@ -33,7 +33,6 @@
 	},
 	"dependencies": {
 		"@supabase/supabase-js": "^2.114.0",
-		"cropperjs": "^2.2.0",
 		"install": "^0.13.0",
 		"npm": "^11.19.1"
 	}

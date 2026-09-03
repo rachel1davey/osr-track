@@ -1,14 +1,35 @@
 <script>
 import { page } from '$app/state';
+import { resolve } from '$app/paths';
+import { supabase } from '$lib/supabase.js';
     let id = page.params.id;
     let { data } = $props();
-    let selectedImage;
-    let previewUrl;
+  let selectedImage = $state();
+  let previewUrl = $state();
 
     function useImageAsMainImage() {
       console.log("Selected image:", selectedImage);
       previewUrl = URL.createObjectURL(selectedImage);
     }
+
+    async function confirmMainImage() {
+      console.log("Saving image to database:", selectedImage);
+        const result = await supabase
+          .storage
+          .from('commission-images')
+          .upload(`${id}/${selectedImage.name}`, selectedImage, {
+            cacheControl: '3600',
+            upsert: true
+          });
+
+          console.log("Upload result:", result);
+
+      // Reset the preview and selected image after saving
+      previewUrl = null;
+      selectedImage = null;
+    }
+
+    
     
 
 </script>
@@ -25,8 +46,9 @@ import { page } from '$app/state';
 {#if previewUrl}
   <div>
     <h3>Preview:</h3>
-    <img src={previewUrl} alt="Preview of selected image" />
+    <img src={previewUrl} alt="" />
+    <button onclick={() => { previewUrl = null; selectedImage = null; }}>Cancel</button> <button onclick={confirmMainImage}>Confirm</button>
   </div>
 {/if}
 
-<a href="/dashboard">Back to Dashboard</a>
+<a href={resolve('/dashboard')}>Back to Dashboard</a>
