@@ -6,4 +6,7 @@
 [] - Add img upload for main image, then image upload for commission in general
 [] - Change commission status uppercase
 [] - Make confirm work for main image
-[] - Add supabase auth
+[Y] - Add supabase auth
+[] - Protect dashboard routes, db access
+[] - create server client for cookies and sessions $lib/hooks.server.js
+
