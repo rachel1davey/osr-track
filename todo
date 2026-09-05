@@ -1,10 +1,10 @@
 [Y] -  Fix imports
 [] - Add images showing
-[] - Add new commission page
+[Y] - Add new commission page
 [] - Add edit/delete comission func
 [Y] - add a main commission img
 [] - Add img upload for main image, then image upload for commission in general
-[] - Change commission status uppercase
+[Y] - Change commission status uppercase
 [Y] - Make confirm work for main image
 [Y] - Add supabase auth
 [] - Protect dashboard routes, db access

@@ -97,6 +97,7 @@ console.log("DATABASE UPDATE:", UpdatedCommission, error);
 
   <div class="flex flex-wrap gap-3">
     <a class="btn btn-primary" href={resolve(`/dashboard/commissions/${id}/edit`)}>Edit Commission</a>
+    <a class="btn btn-error" href={resolve(`/dashboard/commissions/${id}/delete`)}>Delete Commission</a>
     <a class="btn btn-ghost" href={resolve('/dashboard')}>Back to Dashboard</a>
   </div>
 </main>
