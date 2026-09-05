@@ -1,13 +1,22 @@
-
 <script>
-    let { commission } = $props();
+    let { data } = $props();
+    let commission = $state(data.data);
 </script>
 
 <form method="POST">
-    <input type="text" name="name" bind:value={commission.title} placeholder="Commission Name" required>
-    <input type="text" name="description" bind:value={commission.description} placeholder="Description" required>
-    <input type="hidden" name="id" value={commission.id}>
-    <textarea name="description" placeholder="Description" bind:value={commission.description}></textarea>
+    <input
+        type="text"
+        name="name"
+        bind:value={commission.title}
+        placeholder="Commission Name"
+        required
+    >
+
+    <textarea
+        name="description"
+        bind:value={commission.description}
+        placeholder="Description"
+    ></textarea>
 
     <select name="status" bind:value={commission.status}>
         <option value="Pending">Pending Payment</option>
@@ -23,8 +32,8 @@
     <input
         type="text"
         name="customer_name"
-        placeholder="Customer Name"
         bind:value={commission.customer_name}
+        placeholder="Customer Name"
     >
 
     <button type="submit">Update</button>

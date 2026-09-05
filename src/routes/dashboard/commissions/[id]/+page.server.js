@@ -1,8 +1,13 @@
-import { getCommissionById } from '$lib/commissions';
+export async function load({ params, locals }) {
+    const { data: commission, error } = await locals.supabase
+        .from('commissions')
+        .select('*')
+        .eq('id', params.id)
+        .single();
 
-export async function load({ params }) {
-    const commission = await getCommissionById(params.id);
-    return {
-        commission
-    };
+    if (error) {
+        console.error(error);
+    }
+
+    return { commission };
 }
