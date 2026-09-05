@@ -8,4 +8,4 @@
 [] - Make confirm work for main image
 [Y] - Add supabase auth
 [] - Protect dashboard routes, db access
-[] - create server client for cookies and sessions $lib/hooks.server.js
+[Y] - create server client for cookies and sessions $lib/hooks.server.js
