@@ -7,13 +7,14 @@
 console.log('IMAGE URL:', imageUrl);
 </script>
 
-<div>
-<p>ID: {commission.id}</p>
-<h2>{commission.name}</h2>
-<p>{commission.description}</p>
-<p>Status: {commission.status}</p>
-<img src={imageUrl} alt="Commission Image" />
-<p>{imageUrl}</p>
-<a href="/dashboard/commissions/{commission.id}">View Details</a>
+<div class="card w-96 bg-base-100 shadow-xl">
+<figure><img src={imageUrl} alt="Commission Image" /></figure>
+<h2 class="card-title">{commission.name}</h2>
+<p>{commission.customer_name}</p>
+<p class="card-body">{commission.description}</p>
+<div class="badge badge-secondary">{commission.status}</div>
+<div class="card-actions justify-end">
+<a class="btn btn-primary"href="/dashboard/commissions/{commission.id}">View Details</a>
+</div>
 </div>
 
