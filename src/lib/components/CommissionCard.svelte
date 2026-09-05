@@ -2,6 +2,9 @@
     import { getImageUrl } from '$lib/commissions.js';
     let { commission } = $props();
     let imageUrl = getImageUrl(commission.main_image);
+
+    console.log('MAIN IMAGE:', commission.main_image);
+console.log('IMAGE URL:', imageUrl);
 </script>
 
 <div>
