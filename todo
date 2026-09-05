@@ -9,4 +9,3 @@
 [Y] - Add supabase auth
 [] - Protect dashboard routes, db access
 [] - create server client for cookies and sessions $lib/hooks.server.js
-
