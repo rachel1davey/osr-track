@@ -1,6 +1,5 @@
 
 import { redirect } from '@sveltejs/kit';
-import { params } from '$app/stores';
 
 export const actions = {
     default: async ({ request, locals, params }) => {

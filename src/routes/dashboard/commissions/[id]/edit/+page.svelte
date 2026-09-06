@@ -1,9 +1,25 @@
 <script>
-    let { data } = $props();
-    let commission = $state(data.data);
+    import { enhance } from '$app/forms';
+    let { data, form } = $props();
+    let commission = $state( {...data.data} );
+    let submitting = $state(false);
+
+
 </script>
 
-<form method="POST">
+
+<form method="POST" use:enhance={() => {submitting = true;
+
+        return async ({ update }) => {
+            await update();
+            submitting = false;
+        };
+    }}>
+
+{#if form?.error}
+    <p class="text-error alert-outline">{form.error}</p>
+{/if}
+
     <input
         type="text"
         name="name"
@@ -36,6 +52,9 @@
         placeholder="Customer Name"
     >
 
-    <button type="submit">Update</button>
-    <a href="/dashboard" class="btn btn-error">Cancel</a>
+
+<button type="submit" disabled={submitting}>
+    {submitting ? 'Updating...' : 'Update'}
+</button>
+<a href="/dashboard" class="btn btn-error">Cancel</a>
 </form>
